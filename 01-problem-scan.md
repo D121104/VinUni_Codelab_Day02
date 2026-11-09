@@ -13,6 +13,41 @@
 
 Chọn top 3 từ danh sách SCAN: **#1 (Vinmec – Tóm tắt hồ sơ xuất viện), #2 (Vinmec – Kiểm tra hồ sơ bảo hiểm), #5 (Vinmec – Tối ưu thời gian chờ khám bệnh).**
 
+## Card #1 -Vinmec : Tóm tắt hồ sơ xuất viện
+** 
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #1                                       │
+│                                                             │
+│ Bài toán (1 câu): Bác sĩ Vinmec mất nhiều thời gian đọc,    │
+│ tổng hợp và viết tóm tắt hồ sơ xuất viện cho bệnh nhân.     │
+│                                                             │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
+│                     [x] Vinmec   [ ] Khác                   │
+│                                                             │
+│ Ai đang đau (Actor)? Bác sĩ điều trị (quá tải công việc),   │
+│ bệnh nhân (có thể phải chờ hoàn tất hồ sơ xuất viện).       │
+│                                                             │
+│ Workflow thủ công hiện tại (5 bước):                        │
+│   1. Truy cập hồ sơ bệnh án của bệnh nhân                    │
+│   ──> 2. Đọc lịch sử điều trị, xét nghiệm và đơn thuốc      │
+│   ──> 3. Tổng hợp chẩn đoán, diễn biến và kết quả điều trị   │
+│   ──> 4. Viết bản tóm tắt hồ sơ xuất viện                    │
+│   ──> 5. Kiểm tra, chỉnh sửa và xác nhận hồ sơ              │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 2-4                   │
+│ (⏱ Ước tính 20-30 phút/bệnh nhân)                           │
+│                                                             │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2-4              │
+│ Trích xuất thông tin -> Tóm tắt -> Tạo bản nháp xuất viện   │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)?                       │
+│ Mục tiêu giảm thời gian từ 30 -> dưới 10 phút/hồ sơ.        │
+│ 100% bản tóm tắt phải được bác sĩ kiểm tra trước khi duyệt. │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
+└─────────────────────────────────────────────────────────────┘
+```
 ## Card #2 — Vinmec: Kiểm tra hồ sơ bảo hiểm
 
 ```text
@@ -48,8 +83,43 @@ Chọn top 3 từ danh sách SCAN: **#1 (Vinmec – Tóm tắt hồ sơ xuất v
 │ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
 └─────────────────────────────────────────────────────────────┘
 ```
-
+## Card #3 — Vinmec: Tối ưu thời gian chờ khám bệnh
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #3                                       │
+│                                                             │
+│ Bài toán (1 câu): Bệnh nhân Vinmec phải chờ đợi giữa các    │
+│ bước khám, xét nghiệm và nhận kết quả do việc điều phối     │
+│ lịch hẹn và nguồn lực chưa tối ưu.                          │
+│                                                             │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
+│                     [x] Vinmec   [ ] Khác                   │
+│                                                             │
+│ Ai đang đau (Actor)? Bệnh nhân (chờ đợi lâu), nhân viên     │
+│ điều phối (khó phân bổ lịch khám và nguồn lực).             │
+│                                                             │
+│ Workflow thủ công hiện tại (5 bước):                        │
+│   1. Bệnh nhân đăng ký và nhận lịch khám                    │
+│   ──> 2. Nhân viên tiếp nhận và phân luồng bệnh nhân        │
+│   ──> 3. Bệnh nhân chờ đến lượt khám                         │
+│   ──> 4. Chờ thực hiện xét nghiệm hoặc chẩn đoán hình ảnh   │
+│   ──> 5. Chờ kết quả và quay lại gặp bác sĩ                 │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 3-5                   │
+│ (⏱ Giả định 30-60 phút chờ giữa các công đoạn)             │
+│                                                             │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2-4              │
+│ Dự đoán thời gian chờ -> Đề xuất điều phối lịch và nguồn lực│
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)?                       │
+│ Mục tiêu giảm thời gian chờ trung bình ít nhất 30%.         │
+│ Giảm sai số dự đoán thời gian chờ xuống dưới 10 phút.       │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
+└─────────────────────────────────────────────────────────────┘
+```
 ---
+
 
 # 🗳️ Quyết định lựa chọn đề xuất
 
