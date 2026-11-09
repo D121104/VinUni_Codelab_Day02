@@ -13,7 +13,7 @@
 
 Chọn top 3 từ danh sách SCAN: **#1 (Vinmec – Tóm tắt hồ sơ xuất viện), #2 (Vinmec – Kiểm tra hồ sơ bảo hiểm), #5 (Vinmec – Tối ưu thời gian chờ khám bệnh).**
 
-## Card #5 — Vinmec: Tối ưu thời gian chờ khám bệnh
+## Card #2 — Vinmec: Kiểm tra hồ sơ bảo hiểm
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
