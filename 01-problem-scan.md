@@ -12,7 +12,6 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|---|---|---|
-|---|---|---|---|
 | 1 | **Xanh SM** | Tốn thời gian | Nhân viên CSKH có thể mất thời gian phân loại khiếu nại, tra cứu chuyến xe, đối chiếu chính sách và soạn phản hồi; các trường hợp hoàn tiền phải chuyển người có thẩm quyền xác nhận. |
 | 2 | **Xanh SM** | Lặp lại | Quy trình tiếp nhận và xác minh hồ sơ tài xế cần kiểm tra nhiều giấy tờ, đối chiếu thông tin và xác nhận điều kiện, gây tốn thời gian và dễ phát sinh sai sót. |
 | 3 | **Xanh SM** | Pain từ người khác | Điều phối xe điện đến trạm sạc chưa tối ưu có thể gây thời gian chờ kéo dài, tăng quãng đường chạy rỗng và giảm thời gian khai thác xe. |
