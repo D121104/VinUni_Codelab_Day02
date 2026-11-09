@@ -15,7 +15,7 @@ Chọn top 3 từ danh sách SCAN: **#1 (Vinmec – Tóm tắt hồ sơ xuất v
 
 ## Card #5 — Vinmec: Tối ưu thời gian chờ khám bệnh
 
-
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #2                                       │
 │                                                             │
@@ -47,7 +47,7 @@ Chọn top 3 từ danh sách SCAN: **#1 (Vinmec – Tóm tắt hồ sơ xuất v
 │                                                             │
 │ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
 └─────────────────────────────────────────────────────────────┘
-
+```
 
 ---
 
