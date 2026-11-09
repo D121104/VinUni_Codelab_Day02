@@ -1,42 +1,80 @@
-# 📝 Phase 6 — REFLECTION
+# 03 — AI Reflection Log (Lab 02 / gate I3)
 
-**Bài toán nhóm lựa chọn:** Card #05 — Vinhomes: Phân loại và điều phối lead từ website, quảng cáo và sự kiện đến nhân viên Sales phù hợp.
+**Tác giả:** Lê Thanh Hà  
+**Lab:** AI Product Scoping — VinFast Aftersales  
+**Công cụ:** Cursor agents + 2 file research dump + merge vào `VinFast-AI-Product-Final.md`
 
-## 1. Nhóm đã sử dụng AI vào những công việc gì?
+---
 
-Trong buổi lab, nhóm sử dụng AI như một công cụ hỗ trợ phân tích và phản biện, không coi nội dung do AI tạo ra là bằng chứng về hoạt động nội bộ doanh nghiệp.
+## 1. Bối cảnh buổi lab & tool AI đã dùng
 
-| Giai đoạn | AI đã hỗ trợ | Phần tôi/nhóm cần tự quyết định |
-|---|---|---|
-| **Phase 1 — SCAN** | Gợi ý các điểm nghẽn vận hành và diễn đạt bài toán theo 4 góc nhìn: lặp lại, tốn thời gian, AI có thể làm tốt hơn, pain từ người khác. | Chọn và chỉnh sửa các pain point phù hợp, tránh khẳng định giả thuyết là sự thật. |
-| **Phase 2 — QUICK-ASSESS** | Chuẩn hóa các thẻ bài toán về actor, workflow, bottleneck, metric và hướng công nghệ; đưa ra câu hỏi phản biện. | Cùng nhóm lựa chọn **Card #05 — Vinhomes điều phối lead** để phân tích sâu. |
-| **Phase 3 — DEEP-DIVE** | Hỗ trợ phác thảo luồng hiện tại/tương lai, xác định điểm chuyển giao, đề xuất Rule Engine kết hợp mô hình ngôn ngữ và cơ chế nhân viên duyệt. | Xác định ranh giới hệ thống và xem xét khả năng thu thập dữ liệu, đo hiệu quả thực tế. |
-| **Phase 5 — EVALUATE** | Hỗ trợ quy đổi giả định giờ công thành đồng/tháng, xây dựng checklist và tiêu chí GO/NOT YET/NO-GO. | Không chấp nhận các con số mô phỏng như ROI thực tế; giữ kết luận **NOT YET** đối với tích hợp vận hành. |
+Lab 02 yêu cầu chọn **một** bài toán AI hẹp cho VinFast Hậu mãi / xưởng dịch vụ, có thang đo và ranh giới an toàn — không làm slide “AI sẽ cứu cả chuỗi”.
 
-## 2. AI giúp ích nhiều nhất ở đâu?
+Tôi dùng Cursor agents theo 3 vòng (file nằm cùng workspace):
 
-AI giúp tôi chuyển một ý tưởng ban đầu khá rộng — “điều phối lead hiệu quả hơn” — thành một bài toán có đầu vào, đầu ra và giới hạn rõ ràng: đọc thông tin khách hàng từ nhiều kênh, nhận diện nhu cầu, phát hiện hồ sơ cần rà soát và **đề xuất** nhóm Sales phù hợp. AI cũng giúp tôi nhìn thấy sự khác nhau giữa bước cần hiểu ngôn ngữ tự nhiên và bước chỉ cần áp dụng quy tắc phân công.
+1. **`Argon Research.md`** — dump rộng: 8 bài toán × 4 lenses, top card là Diagnostic Co-pilot (RAG Shop Manual / DTC), kèm warranty pre-audit và CSKH ticket. Giọng “Senior AI PE”, impact to, kiến trúc nặng (Multimodal RAG, FTFR, citation groundedness).
+2. **`Curso-research.md`** — dump đối chiếu BYD/Tesla + stress-test kiểu CFO/Head of Aftersales. Thu hẹp mạnh: chỉ triage lời nói trước mã lỗi; **KILL** trụ đầy taxi và súng kẹt đêm; tách Fact (500k/ngày, 24h phụ tùng, 350 xưởng) khỏi giai thoại Ocean Park / trụ đầy.
+3. **`VinFast-AI-Product-Final.md`** — merge: Card #1 = tiếp nhận trước DTC; thước A/B/C/D chung mọi mảng; gói debate 5 phút; Fact vs *[Giả định lab]*; kill criteria viết sẵn.
 
-Điểm hữu ích nhất là quá trình **challenge**: đặt câu hỏi liệu một hệ thống quản lý quan hệ khách hàng (CRM) kết hợp quy tắc có thể xử lý tốt hơn mô hình ngôn ngữ hay không. Nhờ đó, đề xuất cuối không mặc định phải dùng Agent tự trị; giải pháp phù hợp hơn là **Rule Engine + LLM Feature + nhân viên phê duyệt**, với phương án quay về xử lý thủ công khi thiếu dữ liệu hoặc mô hình không chắc chắn.
+AI không “làm hộ bài” một phát. Nó cho hai cực: tham vọng và dao cắt. Việc của tôi là chọn cực nào được mang vào nộp — và viết lại bằng tiếng teammate hiểu.
 
-## 3. AI có hạn chế hoặc dễ khiến tôi hiểu sai ở đâu?
+---
 
-- **Dễ tạo số liệu có vẻ thuyết phục nhưng chưa được đo:** Ví dụ 100 lead/ngày, 10 phút thao tác/lead, tiết kiệm 5 phút/lead và 3 triệu đồng/tháng chi phí AI đều là **[Giả định lab]**, không phải số liệu Vinhomes xác nhận.
-- **Dễ đề xuất kiến trúc quá phức tạp:** Không phải mọi bước phân tuyến đều cần mô hình ngôn ngữ hoặc AI Agent. Các điều kiện về khu vực, dự án, quyền nhận lead và tải công việc nên được thực thi bằng quy tắc rõ ràng.
-- **Không thể xác minh quy trình nội bộ chỉ bằng suy luận:** AI chưa chứng minh rằng quy trình phân loại lead hiện tại ở Vinhomes chủ yếu làm thủ công, hoặc rằng các nguồn lead đang bị thất lạc. Phải khảo sát người vận hành và đối chiếu nhật ký hệ thống.
-- **Không bảo đảm tính chính xác khi tự động hóa:** Mô hình có thể suy đoán ngân sách, ưu đãi hoặc thông tin khách hàng không có trong đầu vào. Cần giới hạn quyền và yêu cầu duyệt ở các bước nhạy cảm.
+## 2. AI giúp gì (có ví dụ cụ thể)
 
-## 4. Nhóm đã kiểm soát và phản biện đầu ra AI như thế nào?
+- **Hai research dump song song:** Argon mở không gian (chẩn đoán RAG, bảo hành Vision, CSKH ASR); Curso ép phải trả lời “CFO sẽ hỏi gì” — nhờ đó tôi có cả longlist lẫn lý do giết card (trụ taxi, súng kẹt đêm).
+- **Chốt Card #1 đúng chỗ đồng hồ tiền:** AI (vòng Curso + final) đẩy pain từ “KTV thiếu sổ tay” sang **lời nói trước mã lỗi** — vì lệnh đã ghi giờ = Fact **500.000đ/ngày** nếu trễ. Đó là insight tôi giữ thay vì RAG toàn Shop Manual.
+- **Thang A/B/C/D thống nhất:** final doc quy mọi mảng về giờ công / tránh chi / mở khóa / chi phí AI. So Card #1 (~87tr) / #2 (~147tr giả định) / #3 (~192tr giả định) không còn kiểu “FTFR vs ACW vs tỷ lệ bắt lỗi” lệch đơn vị.
+- **Debate kit & wording presentation:** pitch 30 giây, bảng đáp teammate (“#3 gần 200 triệu sao không làm?” → Rule-first), kill criteria, output mẫu 1 ca VF8 tụt pin — agent soạn khung; tôi giữ giọng tranh luận thật.
+- **Làm rõ chính sách xe mượn:** Curso/final nhấn xe mượn **không luôn có** — gắn chủ yếu lỗi pin/e-motor; không phải pin/máy thì thường không; pin loan / taxi voucher / 500k/ngày là lớp chính sách riêng, AI **không được** gộp thành “có xe mượn”.
+- **Đơn giản hóa jargon:** “than phiền tiếng Việt” / “triage no_promise” trong slide dễ làm teammate ngơ → đổi thành **“khách kể triệu chứng bằng lời thường”** + cờ **“chưa xác nhận — chờ mã lỗi”**. Cùng ý, người ngoài lab hiểu được.
+- **HITL + adversarial sẵn:** 3 câu tấn công (chai pin + xe mượn + ETA; tổng đài 1tr vs xưởng 500k; rút súng Tây Ninh) — AI draft kỳ vọng từ chối; tôi dùng làm gate lab thay vì tin “model sẽ biết đúng”.
 
-Nhóm sử dụng ba nguyên tắc khi hoàn thiện bài toán:
+---
 
-1. **Fact khác giả định:** Mọi giá trị chưa đo được gắn nhãn **[Giả định lab]**, không gọi là tổn thất hay hiệu quả thực tế của doanh nghiệp.
-2. **So sánh với giải pháp không dùng AI:** Phải có baseline từ form chuẩn hóa, quy tắc phân tuyến và kiểm tra trùng trước khi kết luận mô hình ngôn ngữ tạo thêm giá trị.
-3. **Giữ người chịu trách nhiệm ở bước quyết định:** AI được phân tích nội dung và đề xuất; không được tự hứa giá/ưu đãi, bịa thông tin khách hàng, tự phân quyền hoặc thực hiện hành động ngoài quyền truy cập.
+## 3. AI sai / hallucination / thiên lệch ở đâu
 
-Trong phần phân tích kinh tế, kịch bản lab giả định **100 lead/ngày × 5 phút tiết kiệm × 26 ngày ÷ 60 = 216,67 giờ/tháng**. Với **120.000đ/giờ**, công suất nhân sự quy đổi khoảng **26 triệu đồng/tháng**; trừ **3 triệu đồng/tháng** chi phí AI giả định, được **23 triệu đồng/tháng**. Đây là **giá trị công suất mô phỏng sau chi phí AI**, không phải khoản tiết kiệm tiền mặt đã xác minh. Không cộng doanh thu tăng thêm khi chưa có bằng chứng cải thiện tỷ lệ chuyển đổi.
+- **Vanity metrics kiểu Argon:** 25 → 7 phút tra cứu, FTFR 78% → 92%, Citation ≥98% — số đẹp, không có baseline đo. Curso cũng từng có “20 → 8 phút” rồi tự gạch vì assumption. Nếu copy nguyên Argon vào nộp là bị trừ điểm ngay.
+- **Over-claim xe mượn:** dump sớm dễ viết như xe mượn luôn sẵn khi khách than. Fact/stress-test: hết xe là chuyện thường; ca Tây Ninh (không pin/máy) = không xe mượn. AI “hứa xe mượn” = phá boundary và mở rủi ro tiền — lẫn với pin loan / taxi voucher / 500k/ngày.
+- **Inflate impact qua ô C:** nếu cộng “công suất xe thêm / ngày” khi chưa đo throughput thật → Impact tháng phình ảo. Final phải ghi **C = 0** công khai; chỉ claim A (phút hỏi) + B (lời hứa sai → 500k).
+- **Jargon / viết tắt dày:** DTC, RO, ACW, Multimodal RAG, Structured Diagnostic Synthesis… nghe “đúng nghề” nhưng teammate không vận hành xưởng sẽ không tranh luận được nội dung — chỉ tranh luận từ. Thiên lệch của model: ưu tiên formal product language hơn tiếng người dùng.
+- **So sánh hãng lệch ngữ cảnh:** kiểu “VinFast giống BYD Hàn / Tesla đô thị → LLM kéo thời gian nằm xưởng” — Curso đã gọi thẳng là câu bị trừ điểm. BYD chết đồng sơn/phụ tùng; Tesla chết lịch/pin HV; VinFast VN đã dày xưởng + 24h phụ tùng. AI hay ghép narrative cho “đẹp slide”.
 
-## 5. Kết luận
+---
 
-AI là **người hỗ trợ brainstorm, cấu trúc hóa và phản biện**, không thay thế việc khảo sát thực tế hay quyết định của nhóm. Nhóm chọn tiếp tục nghiên cứu **Card #05 — Vinhomes điều phối lead**, nhưng đánh giá trạng thái hiện tại là **NOT YET cho tích hợp thực tế** vì chưa đủ dữ liệu xác minh baseline và lợi ích tăng thêm so với rule-based. Hướng phù hợp là thử nghiệm prototype offline với dữ liệu giả lập/đã ẩn danh trước, rồi mới cân nhắc pilot có kiểm soát.
+## 4. Tôi đã sửa prompt / scope / ranh giới thế nào
 
+- **Thu hẹp scope:** từ Diagnostic RAG + nhiều card → **pre-code intake** thôi: soạn nháp câu hỏi + cờ chưa được hứa. Card #2/#3 giữ roadmap / Rule-first, không GO cùng lúc.
+- **Prompt boundary cứng:** mọi output = **CHỈ LÀ BẢN NHÁP**; cấm số tiền, xe mượn, chốt bảo hành, giờ giao, hướng dẫn rút súng / bỏ an toàn HV. HITL: cố vấn duyệt trước khi nói với khách.
+- **Fact vs [Giả định lab]:** 500k/ngày = Fact; 12 phút hỏi, 40 xe/ngày, 120kđ/giờ = giả định — tuần 1 shadow 20 ca mới khóa.
+- **C = 0 until proven:** không bán story “rút tiếp nhận → thêm xe/ngày” khi chưa có số; hàng đợi cầu nâng AI không sửa — Curso đã chỉ rõ.
+- **Kill criteria viết trước debate:** A chết nếu hỏi sẵn < 5 phút; B yếu nếu gần như không có khiếu nại lệch lời hứa; >0/24 câu lọt tiền/xe mượn → NO-GO shape production; cố vấn từ chối vì gõ thêm >30s/ca → dừng.
+- **Problem statement plain-language:** bỏ “Diagnostic Co-pilot / FTFR”; nói thẳng cố vấn mất thời gian dịch lời thường + chính sách miệng trước khi KTV cắm máy.
+- **Sửa cách hỏi agent:** từ “viết product card impact cao” → “stress-test như CFO, giết metric ảo, chỉ giữ LLM-fit + Fact tiền cứng”. Prompt khác → dump khác.
+
+---
+
+## 5. Bài học cho lần scoping sau
+
+1. **Hai dump tốt hơn một dump “hoàn hảo”.** Một agent tham vọng (Argon) + một agent CFO-harsh (Curso) nhanh hơn tự chỉnh một file dài; merge có chủ đích mới là sản phẩm — không phải chọn dump nào “nghe hay hơn”.
+2. **Số không gắn Fact thì gắn nhãn giả định — hoặc giết metric.** Vanity (25→7 phút, FTFR, % hài lòng) làm pitch đẹp và làm pilot chết khi CFO hỏi “đo ở đâu?”.
+3. **Ranh giới tiền / giờ / xe mượn viết trước demo.** Nếu AI được hứa những thứ đó, bài toán không còn là prototype — là nợ vận hành (mỗi ngày trễ trên lệnh = 500k Fact).
+
+Ghi nhớ nhanh khi mở agent lần sau: hỏi *“metric nào là Fact, card nào Rule đủ, AI sai một lần ai trả tiền?”* trước khi hỏi *“impact bao nhiêu triệu?”*.
+
+---
+
+## 6. Trạng thái quyết định hiện tại
+
+| Phạm vi | Quyết định |
+|---|---|
+| Prototype trên lớp (24 câu vàng, ≥80% đủ câu hỏi, 0/24 dính tiền–xe mượn–BH–giờ) | **GO** |
+| Đưa ra xưởng thật | **NOT YET** — chờ shadow 20 ca khóa A/B, thay *[Giả định lab]* |
+| AI được quyền hứa tiền / giờ giao / xe mượn / bảo hành | **NO-GO** |
+
+**Sản phẩm chốt:** Trợ lý tiếp nhận & phân loại ban đầu cho cố vấn dịch vụ — trước mã lỗi chẩn đoán.  
+Impact pilot trên giấy ≈ 560 giờ + 20 triệu tránh bồi thường ≈ 87 triệu/tháng − D — **chỉ báo cáo CFO sau khi phút baseline đo thật**.
+
+AI đã giúp tôi **mở rộng rồi cắt**; phần tôi không ủy thác là quyết định GO hẹp và chấp nhận C = 0.
+
+*— Hết log Lab 02 / gate I3.*

@@ -1,156 +1,152 @@
-# 🔍 Phase 1 — SCAN (Cá nhân, 20 min)
+# Lab 02 — Phase 1 SCAN + Phase 2 Quick Cards
 
-Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận hành của các công ty thành viên Vingroup. Ghi lại **ít nhất 5 bài toán/bottleneck** thực tế.
-
-### 4 Lenses tìm bài toán AI cho Vingroup:
-1. **Lặp lại (Repetitive):** Tác vụ lặp đi lặp lại nhiều lần hằng ngày. (Ví dụ: So khớp hóa đơn sạc điện tại VinFast, route lại chuyến taxi tại Xanh SM).
-2. **Tốn thời gian (Time-consuming):** Tác vụ ngốn thời gian xử lý thủ công của nhân viên. (Ví dụ: Soạn thảo phản hồi đánh giá 1-star của cư dân Vinhomes).
-3. **AI có thể tốt hơn (AI-upgrade):** Dịch vụ khách hàng hiện tại còn chậm hoặc phản hồi rập khuôn. (Ví dụ: Chatbot CSKH Vinpearl hỗ trợ đặt vé vui chơi).
-4. **Pain từ người khác (Stakeholder Pain):** Bottleneck khiến khách hàng hoặc nhân viên thực địa phàn nàn. (Ví dụ: Tài xế Xanh SM phàn nàn về việc hệ thống gợi ý điểm đón khách không chính xác).
-
-### 📝 List bài toán của tôi:
-
-| # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
-|---|---|---|---|
-| 1 | **Xanh SM** | Tốn thời gian | Nhân viên CSKH có thể mất thời gian phân loại khiếu nại, tra cứu chuyến xe, đối chiếu chính sách và soạn phản hồi; các trường hợp hoàn tiền phải chuyển người có thẩm quyền xác nhận. |
-| 2 | **Xanh SM** | Tốn thời gian | Khi kiểm tra ảnh bàn giao ca, việc phát hiện và so sánh vết xước/móp méo giữa các lần chụp có thể tốn thời gian hoặc bỏ sót dấu hiệu hư hỏng. |
-| 3 | **Vinmec** | Pain từ người khác | Bác sĩ mất quá nhiều thời gian viết tóm tắt hồ sơ xuất viện (mất 20-30 phút/bệnh nhân, bác sĩ phàn nàn vì quá tải). |
-| 4 | **Vinmec** | Lặp lại|Nhân viên tiếp nhận phải kiểm tra, nhập và đối chiếu thông tin CCCD, BHYT và giấy tờ bảo hiểm cho từng bệnh nhân, dễ phát sinh sai sót nhập liệu. |
-| 5 | **Vinhomes** | Lặp lại + Tốn thời gian + Pain từ người khác | Lead từ web/ads/sự kiện bị phân loại thủ công chậm → bỏ sót hoặc giao Sales sai người. |
-| 6 | **Vinhomes** | Tốn thời gian + AI có thể làm tốt hơn | Sales phải tra cứu thủ công mặt bằng, giá, pháp lý, ưu đãi → tư vấn chậm/sai thông tin. |
----
-
-# 🃏 Phase 2 — QUICK-ASSESS (Cá nhân, 30 min)
-
-Chọn **top 3 bài toán từ Phase 1**: **#1 (Xanh SM – Xử lý khiếu nại)**, **#3 (Vinmec – Tóm tắt hồ sơ xuất viện)**, **#5 (Vinhomes – Phân loại và điều phối lead từ web/ads/sự kiện)**. Số thứ tự Quick Problem Card khớp với số bài toán trong Phase 1.
-
-> **Lưu ý:** Workflow và các chỉ số chưa được đo kiểm là **[Giả định lab]**, không phải dữ liệu vận hành đã xác minh.
-
-## Quick Problem Card #01 — Xanh SM – AI Complaint Resolution Agent
-
-```text
-┌──────────────────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #01                                                   │
-│                                                                          │
-│ Bài toán: Xanh SM cần hỗ trợ tự động phân loại khiếu nại,                │
-│ tra cứu chuyến đi và đề xuất phương án xử lý để giảm thời                │
-│ gian giải quyết yêu cầu chăm sóc khách hàng.                             │
-│                                                                          │
-│ Công ty thành viên: [x] Xanh SM (GSM)                                    │
-│                                                                          │
-│ Ai đang đau? Nhân viên CSKH (quá tải), trưởng nhóm CSKH                  │
-│ và bộ phận xử lý khiếu nại (tốn thời gian xác minh).                     │
-│                                                                          │
-│ Workflow thủ công hiện tại (4 bước giả định):                            │
-│ 1. Tiếp nhận phản ánh từ khách hàng                                      │
-│ → 2. Phân loại khiếu nại, tra cứu thông tin chuyến đi                    │
-│ → 3. Đối chiếu chính sách, xác minh và chọn hướng xử lý                  │
-│ → 4. Soạn phản hồi, gửi khách và cập nhật ticket                         │
-│                                                                          │
-│ Bước nào tốn nhất? Bước 2-3 (⏱ 6 phút/ticket)                            │
-│ Tổng thời gian xử lý: 10 phút/ticket [Giả định lab]                      │
-│                                                                          │
-│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2-4                           │
-│ - LLM: Tự động phân loại nội dung khiếu nại                              │
-│ - Function Calling: Truy xuất dữ liệu chuyến đi                          │
-│ - RAG: Tra cứu chính sách và quy trình xử lý                             │
-│ - AI Agent: Đề xuất phương án và soạn phản hồi nháp                      │
-│ - Nhân viên kiểm tra, phê duyệt trước khi gửi                            │
-│                                                                          │
-│ Đo thành công bằng gì (Metric có số)?                                    │
-│ Giảm thời gian xử lý từ 10 phút → ≤6 phút/ticket.                        │
-│ Độ chính xác phân loại khiếu nại ≥95%.                                   │
-│ Tỷ lệ đề xuất được nhân viên chấp nhận ≥85%.                             │
-│ Tỷ lệ ticket mở lại không tăng so với baseline.                          │
-│ (Các mục tiêu trên là giả định phục vụ pilot.)                           │
-│                                                                          │
-│ Quick Architecture:                                                      │
-│ [x] Rule  [x] LLM  [x] RAG  [x] Agent                                    │
-│ [x] Human-in-the-loop                                                    │
-└──────────────────────────────────────────────────────────────────────────┘
-```
-
-## Quick Problem Card #03 — Vinmec – Hỗ trợ tóm tắt hồ sơ xuất viện
-
-```text
-┌──────────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #03                                           │
-│                                                                  │
-│ Bài toán: Bác sĩ mất thời gian tổng hợp diễn biến điều trị,       │
-│ kết quả xét nghiệm và chỉ định để soạn tóm tắt xuất viện.        │
-│                                                                  │
-│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM                     │
-│                     [ ] Vinhomes [x] Vinmec                     │
-│                                                                  │
-│ Ai đang đau? Bác sĩ điều trị và nhân viên hồ sơ bệnh án.          │
-│                                                                  │
-│ Workflow hiện tại (4 bước giả định):                              │
-│ 1. Mở hồ sơ và xem diễn biến điều trị                             │
-│ -> 2. Tổng hợp chẩn đoán, xét nghiệm, thủ thuật                   │
-│ -> 3. Soạn bản tóm tắt và hướng dẫn ra viện                      │
-│ -> 4. Kiểm tra, chỉnh sửa, phê duyệt và lưu hồ sơ                 │
-│                                                                  │
-│ Bước tốn nhất? Bước 2-3 (20-30 phút/hồ sơ) [Giả định lab]        │
-│                                                                  │
-│ AI hỗ trợ bước 2-3: Tóm tắt nội dung từ hồ sơ được cấp quyền,     │
-│ tạo bản nháp có dẫn nguồn để bác sĩ kiểm tra.                     │
-│                                                                  │
-│ Metric mục tiêu: Giảm 25 -> <=10 phút/hồ sơ;                     │
-│ không bỏ sót thông tin lâm sàng quan trọng. [Giả định lab]       │
-│                                                                  │
-│ Quick Architecture: [x] Rule  [x] LLM  [ ] Agent                 │
-│                     [x] Human Review                             │
-│ Ranh giới: CẤM tự thêm dữ kiện y khoa hoặc tự phê duyệt.         │
-└──────────────────────────────────────────────────────────────────┘
-```
-
-## Quick Problem Card #05 — Vinhomes – Phân loại và điều phối lead
-
-```text
-┌──────────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #05                                           │
-│                                                                  │
-│ Bài toán: Lead từ web, ads và sự kiện cần được phân loại,         │
-│ kiểm tra trùng lặp và giao cho Sales phù hợp kịp thời.          │
-│                                                                  │
-│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM                     │
-│                     [x] Vinhomes [ ] Vinmec                     │
-│                                                                  │
-│ Ai đang đau? Lead Operations, Sales Admin, tư vấn viên Sales     │
-│ và khách hàng đang chờ được liên hệ.                             │
-│                                                                  │
-│ Workflow hiện tại (5 bước giả định):                              │
-│ 1. Nhận lead từ web / quảng cáo / sự kiện                         │
-│ -> 2. Tổng hợp biểu mẫu, hội thoại và thông tin liên hệ          │
-│ -> 3. Kiểm tra trùng, phân loại nhu cầu / ngân sách               │
-│ -> 4. Đề xuất hoặc phân công Sales phù hợp                       │
-│ -> 5. Sales liên hệ và cập nhật CRM                              │
-│                                                                  │
-│ Bước tốn nhất? Bước 3-4: 8-15 phút/lead [Giả định lab]           │
-│                                                                  │
-│ AI hỗ trợ bước 3-4: Đọc nội dung tự do, phân loại nhu cầu,        │
-│ gợi ý nhân viên phù hợp; quy tắc kiểm tra trùng và phân tuyến.    │
-│                                                                  │
-│ Metric mục tiêu: Giảm 10 -> <=5 phút/lead;                       │
-│ 100% lead mới có trạng thái trong CRM. [Giả định lab]            │
-│                                                                  │
-│ Quick Architecture: [x] Rule  [x] LLM  [ ] Agent tự trị          │
-│                     [x] Human Approval                           │
-│ Ranh giới: CẤM tự cam kết giá / ưu đãi hoặc phân công trái       │
-│ chính sách; nhân viên duyệt trường hợp ngoại lệ.                 │
-└──────────────────────────────────────────────────────────────────┘
-```
+> **Bài nộp cá nhân (I1):** Scan ≥5 bài toán + 3 Quick Problem Cards.  
+> **Mảng:** VinFast — Hậu mãi / Xưởng dịch vụ.  
+> **Sản phẩm chốt:** Trợ lý tiếp nhận & phân loại ban đầu cho cố vấn dịch vụ.
 
 ---
 
-# 🗳️ Quyết định lựa chọn đề xuất
+## 🏛️ Bối cảnh: Tôi là ai?
 
-**Chọn Card #05 — Vinhomes: Phân loại và điều phối lead từ web/ads/sự kiện đến nhân viên Sales phù hợp** để thực hiện **Deep-Dive**.
+Tôi là **Lê Thanh Hà**, AI Product Engineer tại **Vin Smart Future**, phối hợp Khối Hậu mãi VinFast. Quan sát tại xưởng cho thấy nút thắt không phải thiếu tài liệu kỹ thuật, mà là **lời nói trước khi có mã lỗi máy chẩn đoán**: khách kể triệu chứng bằng lời thường, cố vấn dịch vụ vừa hỏi thêm vừa đối chiếu chính sách miệng (xe mượn, bảo hành pin, bồi thường trễ hạn), trong khi lệnh sửa chữa đã ghi giờ sẽ kích hoạt **500.000 đồng/ngày** nếu giao muộn (Fact). Điểm AI hỗ trợ thật là chuẩn hóa tiếp nhận **trước khi** kỹ thuật viên cắm máy đọc lỗi.
 
-## Lý do lựa chọn và loại bỏ các thẻ khác
+---
 
-- **Card #01 (Xanh SM – Hỗ trợ xử lý khiếu nại):** Có tiềm năng giảm thời gian phân loại, tra cứu chuyến đi và soạn phản hồi, nhưng cần truy cập dữ liệu giao dịch, chính sách hoàn tiền và phân quyền chặt chẽ. Các tình huống tranh chấp hoặc cam kết bồi thường có rủi ro cao; nhiều yêu cầu đơn giản có thể xử lý bằng API và quy tắc. Chưa ưu tiên cho MVP ngắn hạn.
-- **Card #03 (Vinmec – Tóm tắt hồ sơ xuất viện):** Có thể tiết kiệm thời gian cho bác sĩ, nhưng đòi hỏi bảo vệ dữ liệu sức khỏe, kiểm tra tính đầy đủ và chính xác của nội dung y khoa, cùng cơ chế bác sĩ phê duyệt. Rủi ro bỏ sót hoặc bịa thông tin lâm sàng khiến việc triển khai thử nghiệm khó hơn.
-- **Card #05 (Vinhomes – Phân loại và điều phối lead):** Quy trình đầu vào và đầu ra rõ ràng: thu lead từ web/ads/sự kiện, chuẩn hóa, kiểm tra trùng, phân loại nhu cầu và đề xuất phân công cho Sales. Có thể mô phỏng bằng dữ liệu tổng hợp, áp dụng Rule Engine cho các điều kiện phân tuyến và LLM để hiểu nội dung tự do. Đánh giá được bằng phút xử lý/lead, tỷ lệ lead có người phụ trách, tỷ lệ phân tuyến đúng và số lead bỏ sót; các quyết định ngoại lệ vẫn do nhân viên duyệt.
+# 🔍 Phase 1 — SCAN: Tìm kiếm cơ hội
 
-**Kết luận:** Nhóm ưu tiên **Card #05** vì có phạm vi MVP rõ, dễ tạo dữ liệu thử nghiệm, dễ so sánh với baseline rule-based và rủi ro được kiểm soát bằng quy tắc phân công cùng phê duyệt của nhân viên. Trước khi triển khai thực tế phải xác minh lưu lượng lead, thời gian phân tuyến hiện tại, dữ liệu được phép sử dụng và chính sách bảo vệ thông tin khách hàng.
+Dùng **4 Lenses** quét vận hành VinFast. Mỗi dòng ưu tiên đổ về thang **A (giờ công)** / **B (tiền tránh chi)** khi có số từ nguồn Final.
+
+| # | Mảng | Lens | Bài toán | A Giờ/tháng | B Tránh chi/tháng | Ghi chú |
+|---|---|---|---|---|---|---|
+| 1 | Hậu mãi / Xưởng | Tốn thời gian | Quầy tiếp nhận: khách kể triệu chứng bằng lời thường; cố vấn hỏi + đối chiếu chính sách miệng trước mã lỗi | ~560 giờ *[Giả định lab]* | ~20 triệu (Fact 500k/ngày × lệnh tránh sai giờ) *[Giả định khối lượng]* | **Chốt Card #1** — Impact gộp ≈ 87 triệu/tháng |
+| 2 | Hậu mãi / Kỹ thuật | AI tốt hơn | Tra cứu đa mã lỗi + sổ tay kỹ thuật; giảm thay nhầm linh kiện | ~480 giờ *[Giả định lab]* | ~75 triệu (linh kiện) *[Giả định lab]* | Card #2 — roadmap; chưa đo baseline |
+| 3 | Bảo hành | Lặp lại | Tiền kiểm hồ sơ bảo hành: duyệt, bắt kê thừa | ~1.200 giờ *[Giả định lab]* | ~72 triệu (giữ lại) *[Giả định lab]* | Card #3 — Rule trước, AI sau |
+| 4 | CSKH / Tổng đài | Lặp lại | Điền phiếu sau cuộc gọi; chuyển đúng bộ phận | Có thể điền A khi khóa phút hậu kỳ | 0 (ít tiền trực tiếp) | Chỉ vào top khi khóa được A |
+| 5 | V-Green / Trạm sạc | Pain từ người khác | App báo trống / taxi chiếm trụ; khách chờ lâu | ❌ thiếu dữ liệu trạng thái trụ | phí chiếm trụ chưa gắn AI | **Loại** — chưa đủ thang đo |
+| 6 | Cứu hộ / Mobile Service | Pain từ người khác | Súng sạc kẹt ngoài giờ; thiếu thợ đêm | ❌ không phải bài AI | ❌ | **Loại** — thiếu capacity vận hành |
+
+> **Thước chung:** Impact tháng ≈ A × đơn giá giờ + B (+ C nếu chứng minh được; − D chi phí AI). Ý không điền được A hoặc B → không vào top. Fact cứng duy nhất gắn tiền ngay: **500.000đ/ngày** khi trễ giờ cam kết trên lệnh sửa.
+
+---
+
+# 🃏 Phase 2 — QUICK-ASSESS: 3 Quick Problem Cards
+
+Top 3 đều có thang đo nhân số. Thẻ triển khai sâu (Phase 3): **Card #1**.
+
+## Card #1 — Trợ lý tiếp nhận & phân loại ban đầu *(CHỐT)*
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #1                                       │
+│                                                             │
+│ Bài toán: Quầy tiếp nhận — khách kể triệu chứng bằng lời   │
+│ thường; cố vấn dịch vụ cần hỏi đúng + không hứa bừa         │
+│ (xe mượn / tiền / giờ trả) TRƯỚC khi thợ đọc mã lỗi         │
+│ máy chẩn đoán.                                              │
+│ Công ty thành viên: [x] VinFast — Hậu mãi / Xưởng dịch vụ   │
+│                                                             │
+│ Ai đang đau? Cố vấn dịch vụ, chủ xe                         │
+│                                                             │
+│ Workflow thủ công hiện tại:                                 │
+│   1. Đặt lịch (ứng dụng / tổng đài)                         │
+│   → 2. Tới xưởng, chờ cố vấn dịch vụ                        │
+│   → 3. Phỏng vấn + đối chiếu chính sách miệng               │
+│   → 4. Kỹ thuật viên cắm máy → mã lỗi chẩn đoán             │
+│   → 5. Ghi giờ giao trên lệnh sửa chữa                      │
+│                                                             │
+│ Bước nghẽn? Bước 3 (⏱ ~12 phút/xe) *[Giả định lab]*         │
+│ AI nhảy vào? Soạn nháp câu hỏi cần hỏi thêm + gắn cờ        │
+│ "chưa xác nhận — chờ mã lỗi" (cấm hứa tiền/xe mượn/giờ trả) │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)?                       │
+│   Vận hành [Giả định lab]: 12 phút → ≤ 5 phút hỏi–đối chiếu │
+│   / xe; pilot 40 xe/ngày × 5 xưởng = 200 xe/ngày            │
+│   → tiết kiệm ~560 giờ/tháng × 120.000đ ≈ 67 triệu (A)      │
+│   + tránh ~20 triệu bồi thường giờ giao sai (B, Fact 500k)  │
+│   → Impact pilot ≈ 87 triệu đồng/tháng                      │
+│   Lab: 24 câu vàng; ≥80% đủ câu hỏi; 0/24 dính tiền /       │
+│   xe mượn / bảo hành / ngày-giờ; ≥3 câu đối kháng từ chối.  │
+│                                                             │
+│ Quick Architecture: [x] Tính năng mô hình ngôn ngữ          │
+│                     + duyệt người (cố vấn) bắt buộc         │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Card #2 — Trợ lý chẩn đoán kỹ thuật *(roadmap)*
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #2                                       │
+│                                                             │
+│ Bài toán: Kỹ thuật viên mất thời gian tra cứu đa mã lỗi    │
+│ máy chẩn đoán + sổ tay kỹ thuật; dễ thay nhầm linh kiện.    │
+│ Công ty thành viên: [x] VinFast — Hậu mãi / Kỹ thuật xưởng  │
+│                                                             │
+│ Ai đang đau? Kỹ thuật viên, cố vấn dịch vụ (lặp lệnh)       │
+│                                                             │
+│ Workflow thủ công hiện tại:                                 │
+│   1. Nhận mã lỗi từ máy chẩn đoán                           │
+│   → 2. Tra cứu sổ tay / bản tin kỹ thuật thủ công           │
+│   → 3. Đoán hướng sửa / chọn linh kiện                      │
+│   → 4. Thay thử → kiểm tra lại                              │
+│                                                             │
+│ Bước nghẽn? Bước 2–3 (⏱ giảm ~10 phút/ca khó) *[Giả định]*  │
+│ AI nhảy vào? Gợi ý hướng tra cứu + cảnh báo linh kiện rủi ro│
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)? *[Giả định lab]*      │
+│   120 ca khó/ngày × 10 phút = ~480 giờ kỹ thuật/tháng       │
+│   × 150.000đ/giờ ≈ 72 triệu (A)                             │
+│   + giảm 5 ca thay nhầm linh kiện cao áp/tháng × 15 triệu   │
+│   ≈ 75 triệu tránh chi (B) → Impact giấy ≈ 147 triệu        │
+│                                                             │
+│ Quick Architecture: [x] Tính năng mô hình ngôn ngữ          │
+│                     (cần corpus sổ tay đo được)             │
+│ Verdict: NOT YET — giữ roadmap; chưa khóa baseline phút     │
+│          tra cứu và tỷ lệ sửa đúng lần đầu trên dữ liệu thật│
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Card #3 — Tiền kiểm hồ sơ bảo hành *(Rule-first)*
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #3                                       │
+│                                                             │
+│ Bài toán: Chuyên viên bảo hành mất thời gian tiền kiểm      │
+│ hồ sơ (đủ giấy tờ, điều kiện đời xe / km, kê thừa chi phí). │
+│ Công ty thành viên: [x] VinFast — Bảo hành                  │
+│                                                             │
+│ Ai đang đau? Chuyên viên bảo hành, xưởng (chờ duyệt tiền)   │
+│                                                             │
+│ Workflow thủ công hiện tại:                                 │
+│   1. Nhận hồ sơ từ xưởng                                    │
+│   → 2. Đối chiếu điều kiện bảo hành theo đời xe / km        │
+│   → 3. Kiểm tra kê thừa linh kiện / công                    │
+│   → 4. Duyệt hoặc trả lại                                   │
+│                                                             │
+│ Bước nghẽn? Bước 2–3 (⏱ giảm ~10 phút/hồ sơ) *[Giả định]*   │
+│ AI nhảy vào? Chỉ sau khi quy tắc cứng / truy vấn dữ liệu    │
+│ cover phần lớn kiểm tra; AI hỗ trợ đuôi dài / ảnh chứng từ  │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)? *[Giả định lab]*      │
+│   300 hồ sơ/ngày × 10 phút = ~1.200 giờ/tháng               │
+│   × 100.000đ/giờ ≈ 120 triệu (A)                            │
+│   + bắt 3% hồ sơ kê thừa × giá trị TB 8 triệu ≈ 72 triệu (B)│
+│   → Impact giấy ≈ 192 triệu                                 │
+│                                                             │
+│ Quick Architecture: [x] Quy tắc / truy vấn dữ liệu trước    │
+│                     [ ] Mô hình ngôn ngữ sau (đuôi dài)      │
+│ Verdict: Rule-first — ~80% làm được bằng quy tắc; ảnh xưởng │
+│          dễ báo sai → impact thật phụ thuộc báo động giả    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+# 🗳️ Quyết định lựa chọn của nhóm
+
+Nhóm chốt **Card #1 — Trợ lý tiếp nhận & phân loại ban đầu**.
+
+* **Có Fact tiền cứng ngay:** mỗi ngày trễ trên lệnh đã ghi giờ = **500.000 đồng** — AI chỉ đụng lớp *trước* khi đồng hồ đó bị mở sai bằng lời hứa miệng.
+* **Đo được trong lab / pilot hẹp:** A + B điền được (dù khối lượng còn *[Giả định lab]*); ranh giới an toàn rõ (cấm tiền / xe mượn / giờ trả + duyệt người).
+* **Card #2 / #3 chưa chốt:** #2 impact giấy lớn nhưng thiếu baseline; #3 phần lớn là quy tắc cứng → Rule trước. V-Green trụ đầy / súng kẹt đêm → **loại** (thiếu dữ liệu trụ / thiếu thợ, không nhân ra impact AI).
