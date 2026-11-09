@@ -63,11 +63,11 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 ### 📝 List bài toán của tôi:
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|----------------------------------|------|---------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| 1 | Vinhomes | Repetitive + Time-consuming + Stakeholder Pain | Lead từ web/ads/sự kiện bị phân loại thủ công chậm → bỏ sót hoặc giao Sales sai người. |
+| 2 | Vinhomes | Time-consuming + AI-upgrade | Sales phải tra cứu thủ công mặt bằng, giá, pháp lý, ưu đãi → tư vấn chậm/sai thông tin. |
+| 3 | Vinhomes | Repetitive + Time-consuming + AI-upgrade | Khách quan tâm nhưng chưa mua không được follow-up đúng lúc → rớt chuyển đổi. |
+| 4 | Vinhomes | Repetitive + Time-consuming + AI-upgrade | Marketing sản xuất content cho nhiều dự án/phân khúc thủ công → chậm và dễ sai brand/giá. |
+| 5 | Vinhomes | Time-consuming + AI-upgrade + Stakeholder Pain | Khó đo kênh/chiến dịch nào thực sự tạo giao dịch → phân bổ ngân sách marketing kém hiệu quả. |
 
 ---
 
@@ -75,26 +75,105 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 
 Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Problem Cards** dưới đây (10 phút/card).
 
+> Top 3: **#1 Lead Intelligence**, **#2 Sales Copilot**, **#3 Customer Nurturing**
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #___                                     │
+│ QUICK PROBLEM CARD #1                                       │
 │                                                             │
-│ Bài toán (1 câu): ________________________________________  │
-│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
+│ Bài toán (1 câu): Lead Vinhomes bị phân loại/giao Sales     │
+│ thủ công → bỏ sót hoặc chăm sóc sai thời điểm.              │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [x] Vinhomes  │
 │                     [ ] Vinmec   [ ] Khác (Ghi rõ)________  │
 │                                                             │
-│ Ai đang đau (Actor)? ______________________________________ │
+│ Ai đang đau (Actor)? Lead Ops / Sales Admin + Sales Consultant│
 │                                                             │
 │ Workflow thủ công hiện tại (3-5 bước):                      │
-│   1. ___ ──> 2. ___ ──> 3. ___ ──> 4. ___                   │
+│   1. Lead phát sinh từ web/ads/event                        │
+│   ──> 2. Thu thập form/chat thủ công                        │
+│   ──> 3. Nhân viên đọc & phân loại nhu cầu/ngân sách        │
+│   ──> 4. Phân công Sales                                    │
+│   ──> 5. Sales gọi & cập nhật CRM                           │
 │                                                             │
-│ Bước nào tốn thời gian/lỗi nhất? ___ (⏱ ___ phút/lượt)      │
-│ AI có thể nhảy vào hỗ trợ ở bước nào? _____________________ │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 3–4 phân loại +       │
+│ routing (⏱ ~8–15 phút/lead; dễ trùng/bỏ sót)                │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 3–4: phân tích   │
+│ form/hội thoại, chấm Intent, đề xuất Sales, phát hiện trùng │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)? ______________________ │
-│   VD: "Giảm thời gian soạn phản hồi từ 10 min ──> under 2 min"│
+│ Đo thành công bằng gì (Metric có số)?                       │
+│   - Thời gian phân loại: 10 phút ──> under 5 phút (-50%)    │
+│   - 95% lead được phân loại tự động                         │
+│   - 100% lead mới có trạng thái xử lý trong CRM             │
 │                                                             │
-│ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [ ] Agent │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [x] Agent │
+│   (LLM phân loại intent + Agent gợi ý routing; HITL duyệt)  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #2                                       │
+│                                                             │
+│ Bài toán (1 câu): Sales Vinhomes mất nhiều thời gian tra    │
+│ cứu tài liệu dự án → tư vấn chậm hoặc sai thông tin.        │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [x] Vinhomes  │
+│                     [ ] Vinmec   [ ] Khác (Ghi rõ)________  │
+│                                                             │
+│ Ai đang đau (Actor)? Sales Consultant / Sales Advisor       │
+│                                                             │
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Nhận yêu cầu khách (ngân sách, loại căn, dự án)        │
+│   ──> 2. Mở PDF/Excel/slide nội bộ để tìm thông tin         │
+│   ──> 3. So sánh thủ công các lựa chọn                      │
+│   ──> 4. Soạn câu trả lời / tư vấn khách                    │
+│   ──> 5. Xác nhận lại với team sản phẩm khi nghi ngờ        │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 2–3 tra cứu + so sánh │
+│ (⏱ ~10–20 phút/lượt; dễ dùng tài liệu cũ)                   │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2–4: RAG trả lời │
+│ có citation nguồn/phiên bản; gợi ý so sánh căn/dự án        │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)?                       │
+│   - Thời gian tìm thông tin: 15 phút ──> under 6 phút (-60%)│
+│   - ≥90% câu hỏi phổ biến có câu trả lời có nguồn kiểm chứng│
+│   - Giảm số case tư vấn sai giá/pháp lý/ưu đãi              │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
+│   (RAG + LLM trên Project Knowledge Base; dễ demo prototype)│
+└─────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #3                                       │
+│                                                             │
+│ Bài toán (1 câu): Khách quan tâm nhưng chưa mua không được  │
+│ nurture đúng nhu cầu/đúng lúc → mất cơ hội chuyển đổi.      │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [x] Vinhomes  │
+│                     [ ] Vinmec   [ ] Khác (Ghi rõ)________  │
+│                                                             │
+│ Ai đang đau (Actor)? Sales Consultant + Customer Care       │
+│                                                             │
+│ Workflow thủ công hiện tại (3-5 bước):                      │
+│   1. Ghi nhận trạng thái khách trên CRM/Excel               │
+│   ──> 2. Sales tự nhớ lịch follow-up                        │
+│   ──> 3. Soạn tin nhắn/email thủ công                       │
+│   ──> 4. Gửi thông tin dự án/chính sách                     │
+│   ──> 5. Cập nhật phản hồi & quyết định bước tiếp           │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 2–3 nhớ lịch + soạn   │
+│ tin (⏱ ~5–10 phút/khách/lượt; dễ bỏ sót khi pipeline lớn)   │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2–5: đề xuất lịch│
+│ chăm sóc, soạn tin cá nhân hóa, phát hiện tín hiệu mua;     │
+│ Sales duyệt trước khi gửi (HITL)                            │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)?                       │
+│   - Tăng 20% tỷ lệ khách phản hồi sau follow-up             │
+│   - Giảm 50% thời gian chăm sóc thủ công                    │
+│   - Tăng tỷ lệ Lead ──> Site Visit                          │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [x] Agent │
+│   (Agent theo dõi trạng thái + đề xuất action; HITL trước gửi)│
 └─────────────────────────────────────────────────────────────┘
 ```
 
