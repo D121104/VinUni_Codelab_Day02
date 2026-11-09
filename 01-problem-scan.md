@@ -15,26 +15,39 @@ Chọn top 3 từ danh sách SCAN: **#1 (Vinmec – Tóm tắt hồ sơ xuất v
 
 ## Card #5 — Vinmec: Tối ưu thời gian chờ khám bệnh
 
-**Bài toán:** Bệnh nhân có thể phải chờ lâu giữa các bước khám, xét nghiệm và nhận kết quả khi lịch hẹn và nguồn lực chưa được phân bổ tối ưu.
 
-**Công ty thành viên:** Vinmec
+┌─────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #2                                       │
+│                                                             │
+│ Bài toán (1 câu): Nhân viên Vinmec phải kiểm tra, nhập liệu │
+│ và đối chiếu thủ công hồ sơ bảo hiểm của bệnh nhân.         │
+│                                                             │
+│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
+│                     [x] Vinmec   [ ] Khác                   │
+│                                                             │
+│ Ai đang đau (Actor)? Nhân viên tiếp nhận (quá tải),         │
+│ bệnh nhân (chờ đợi làm thủ tục).                            │
+│                                                             │
+│ Workflow thủ công hiện tại (5 bước):                        │
+│   1. Tiếp nhận CCCD, BHYT và giấy tờ bảo hiểm               │
+│   ──> 2. Kiểm tra tính đầy đủ của giấy tờ                   │
+│   ──> 3. Nhập thông tin vào hệ thống quản lý                │
+│   ──> 4. Đối chiếu thông tin giữa các giấy tờ               │
+│   ──> 5. Xác nhận hoặc yêu cầu bổ sung hồ sơ                │
+│                                                             │
+│ Bước nào tốn thời gian/lỗi nhất? Bước 3-4                   │
+│ (⏱ Ước tính 5-7 phút/hồ sơ)                                │
+│                                                             │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2-4              │
+│ OCR trích xuất -> Đối chiếu -> Cảnh báo sai lệch            │
+│                                                             │
+│ Đo thành công bằng gì (Metric có số)?                       │
+│ Giảm thời gian xử lý từ 7 phút ──> dưới 2 phút/hồ sơ.       │
+│ Độ chính xác trích xuất thông tin ≥98%.                     │
+│                                                             │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
+└─────────────────────────────────────────────────────────────┘
 
-**Ai đang đau?** Bệnh nhân (chờ đợi), nhân viên điều phối (khó cân bằng lịch khám).
-
-**Workflow thủ công hiện tại (5 bước giả định):**
-1. Bệnh nhân đăng ký và nhận lịch khám.
-2. Nhân viên kiểm tra lịch bác sĩ và phòng khám.
-3. Điều phối bệnh nhân đến khu vực khám hoặc xét nghiệm.
-4. Theo dõi tiến độ và điều chỉnh thứ tự khi phát sinh chậm trễ.
-5. Thông báo thời gian chờ dự kiến cho bệnh nhân.
-
-**Bước nào tốn nhất?** Bước 3–4, đặc biệt khi có nhiều bệnh nhân và lịch khám thay đổi.
-
-**AI có thể hỗ trợ bước nào?** Bước 2–5: Dự đoán thời gian chờ, đề xuất phân bổ lịch và cập nhật thời gian dự kiến.
-
-**Metric:** Mục tiêu giảm thời gian chờ trung bình 20–30% so với baseline đo được, không làm tăng tỷ lệ trễ ở các ca ưu tiên.
-
-**Quick Architecture:** [x] Predictive ML + Scheduling Optimization.
 
 ---
 
