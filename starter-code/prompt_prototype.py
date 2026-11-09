@@ -12,10 +12,16 @@ Instructions:
 
 import os
 import sys
+from pathlib import Path
 from typing import Any
 
-# Standard Model Identifier
-GEMINI_MODEL = "gemini-2.5-flash"
+from dotenv import load_dotenv
+
+# Load GEMINI_API_KEY from project-root .env (works even when cwd is starter-code/)
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
+# Model from .env (fallback if unset)
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
 
 # ===========================================================================
 # 🛡️ Operational Boundaries to Enforce via System Prompt:
