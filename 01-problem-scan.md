@@ -13,144 +13,169 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|---|---|---|
 | 1 | **Xanh SM** | Tốn thời gian | Nhân viên CSKH có thể mất thời gian phân loại khiếu nại, tra cứu chuyến xe, đối chiếu chính sách và soạn phản hồi; các trường hợp hoàn tiền phải chuyển người có thẩm quyền xác nhận. |
-| 2 | **Xanh SM** | Tốn thời gian | Khi kiểm tra ảnh bàn giao ca, việc phát hiện và so sánh vết xước/móp méo giữa các lần chụp có thể tốn thời gian hoặc bỏ sót dấu hiệu hư hỏng. |
-| 3 | **Vinmec** | Pain từ người khác | Bác sĩ mất quá nhiều thời gian viết tóm tắt hồ sơ xuất viện (mất 20-30 phút/bệnh nhân, bác sĩ phàn nàn vì quá tải). |
-| 4 | **Vinmec** | Lặp lại|Nhân viên tiếp nhận phải kiểm tra, nhập và đối chiếu thông tin CCCD, BHYT và giấy tờ bảo hiểm cho từng bệnh nhân, dễ phát sinh sai sót nhập liệu. |
-| 5 | **Vinhomes** | Lặp lại + Tốn thời gian + Pain từ người khác | Lead từ web/ads/sự kiện bị phân loại thủ công chậm → bỏ sót hoặc giao Sales sai người. |
-| 6 | **Vinhomes** | Tốn thời gian + AI có thể làm tốt hơn | Sales phải tra cứu thủ công mặt bằng, giá, pháp lý, ưu đãi → tư vấn chậm/sai thông tin. |
+| 2 | **Xanh SM** | Lặp lại | Quy trình tiếp nhận và xác minh hồ sơ tài xế cần kiểm tra nhiều giấy tờ, đối chiếu thông tin và xác nhận điều kiện, gây tốn thời gian và dễ phát sinh sai sót. |
+| 3 | **Xanh SM** | Pain từ người khác | Điều phối xe điện đến trạm sạc chưa tối ưu có thể gây thời gian chờ kéo dài, tăng quãng đường chạy rỗng và giảm thời gian khai thác xe. |
+| 4 | **Xanh SM** | AI-upgrade | Theo dõi tình trạng xe và lên lịch bảo dưỡng dựa trên kiểm tra định kỳ có thể bỏ sót dấu hiệu hỏng hóc sớm, gây thời gian dừng xe ngoài kế hoạch. |
+| 5 | **Xanh SM** | Lặp lại | Đối soát dữ liệu chuyến đi, thanh toán, khuyến mãi và thu nhập tài xế từ nhiều nguồn có thể phát sinh sai lệch, cần kiểm tra thủ công và làm chậm quy trình tài chính. |
+| 6 | **Xanh SM** | AI-upgrade | Nhu cầu đặt xe biến động theo khu vực/khung giờ có thể gây mất cân bằng cung–cầu, tăng thời gian khách chờ và quãng đường xe chạy rỗng nếu dự báo, phân bổ chưa hiệu quả. |
+| 7 | **Xanh SM** | Tốn thời gian | Khi kiểm tra ảnh bàn giao ca, việc phát hiện và so sánh vết xước/móp méo giữa các lần chụp có thể tốn thời gian hoặc bỏ sót dấu hiệu hư hỏng. |
+| 8 | **Xanh SM** | AI-upgrade | Phát hiện hành vi bất thường như hủy chuyến có chủ đích, kéo dài quãng đường hoặc thao tác sai trên ứng dụng cần phân tích nhiều dữ liệu hành trình, gây khó khăn cho việc giám sát chất lượng dịch vụ trên quy mô lớn. |
+| 9 | **Xanh SM** | Pain từ người khác | Theo dõi chất lượng đào tạo và đánh giá năng lực tài xế dựa trên kết quả kiểm tra, phản hồi khách hàng và lịch sử vận hành có thể thiếu tính cá nhân hóa, khiến việc phát hiện tài xế cần đào tạo bổ sung chưa kịp thời. |
+| 10 | **Xanh SM** | Tốn thời gian | Quản lý yêu cầu đặt xe doanh nghiệp, hợp đồng dịch vụ và lịch đưa đón đoàn khách có thể cần tổng hợp thông tin từ nhiều kênh, gây tốn thời gian lập phương án vận chuyển và dễ sai sót khi thay đổi lịch trình. |
+
 ---
 
 # 🃏 Phase 2 — QUICK-ASSESS (Cá nhân, 30 min)
 
-Chọn **top 3 bài toán từ Phase 1**: **#1 (Xanh SM – Xử lý khiếu nại)**, **#3 (Vinmec – Tóm tắt hồ sơ xuất viện)**, **#5 (Vinhomes – Phân loại và điều phối lead từ web/ads/sự kiện)**. Số thứ tự Quick Problem Card khớp với số bài toán trong Phase 1.
+Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Problem Cards** dưới đây (10 phút/card).
 
-> **Lưu ý:** Workflow và các chỉ số chưa được đo kiểm là **[Giả định lab]**, không phải dữ liệu vận hành đã xác minh.
+---
 
-## Quick Problem Card #01 — Xanh SM – AI Complaint Resolution Agent
 
-```text
-┌──────────────────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #01                                                   │
-│                                                                          │
-│ Bài toán: Xanh SM cần hỗ trợ tự động phân loại khiếu nại,                │
-│ tra cứu chuyến đi và đề xuất phương án xử lý để giảm thời                │
-│ gian giải quyết yêu cầu chăm sóc khách hàng.                             │
-│                                                                          │
-│ Công ty thành viên: [x] Xanh SM (GSM)                                    │
-│                                                                          │
-│ Ai đang đau? Nhân viên CSKH (quá tải), trưởng nhóm CSKH                  │
-│ và bộ phận xử lý khiếu nại (tốn thời gian xác minh).                     │
-│                                                                          │
-│ Workflow thủ công hiện tại (4 bước giả định):                            │
-│ 1. Tiếp nhận phản ánh từ khách hàng                                      │
-│ → 2. Phân loại khiếu nại, tra cứu thông tin chuyến đi                    │
-│ → 3. Đối chiếu chính sách, xác minh và chọn hướng xử lý                  │
-│ → 4. Soạn phản hồi, gửi khách và cập nhật ticket                         │
-│                                                                          │
-│ Bước nào tốn nhất? Bước 2-3 (⏱ 6 phút/ticket)                            │
-│ Tổng thời gian xử lý: 10 phút/ticket [Giả định lab]                      │
-│                                                                          │
-│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2-4                           │
-│ - LLM: Tự động phân loại nội dung khiếu nại                              │
-│ - Function Calling: Truy xuất dữ liệu chuyến đi                          │
-│ - RAG: Tra cứu chính sách và quy trình xử lý                             │
-│ - AI Agent: Đề xuất phương án và soạn phản hồi nháp                      │
-│ - Nhân viên kiểm tra, phê duyệt trước khi gửi                            │
-│                                                                          │
-│ Đo thành công bằng gì (Metric có số)?                                    │
-│ Giảm thời gian xử lý từ 10 phút → ≤6 phút/ticket.                        │
-│ Độ chính xác phân loại khiếu nại ≥95%.                                   │
-│ Tỷ lệ đề xuất được nhân viên chấp nhận ≥85%.                             │
-│ Tỷ lệ ticket mở lại không tăng so với baseline.                          │
-│ (Các mục tiêu trên là giả định phục vụ pilot.)                           │
-│                                                                          │
-│ Quick Architecture:                                                      │
-│ [x] Rule  [x] LLM  [x] RAG  [x] Agent                                    │
-│ [x] Human-in-the-loop                                                    │
-└──────────────────────────────────────────────────────────────────────────┘
-```
+# 3 QUICK PROBLEM CARDS – XANH SM
+---
 
-## Quick Problem Card #03 — Vinmec – Hỗ trợ tóm tắt hồ sơ xuất viện
+### QUICK PROBLEM CARD #01 – AI Vehicle Damage Detection
 
 ```text
-┌──────────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #03                                           │
-│                                                                  │
-│ Bài toán: Bác sĩ mất thời gian tổng hợp diễn biến điều trị,       │
-│ kết quả xét nghiệm và chỉ định để soạn tóm tắt xuất viện.        │
-│                                                                  │
-│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM                     │
-│                     [ ] Vinhomes [x] Vinmec                     │
-│                                                                  │
-│ Ai đang đau? Bác sĩ điều trị và nhân viên hồ sơ bệnh án.          │
-│                                                                  │
-│ Workflow hiện tại (4 bước giả định):                              │
-│ 1. Mở hồ sơ và xem diễn biến điều trị                             │
-│ -> 2. Tổng hợp chẩn đoán, xét nghiệm, thủ thuật                   │
-│ -> 3. Soạn bản tóm tắt và hướng dẫn ra viện                      │
-│ -> 4. Kiểm tra, chỉnh sửa, phê duyệt và lưu hồ sơ                 │
-│                                                                  │
-│ Bước tốn nhất? Bước 2-3 (20-30 phút/hồ sơ) [Giả định lab]        │
-│                                                                  │
-│ AI hỗ trợ bước 2-3: Tóm tắt nội dung từ hồ sơ được cấp quyền,     │
-│ tạo bản nháp có dẫn nguồn để bác sĩ kiểm tra.                     │
-│                                                                  │
-│ Metric mục tiêu: Giảm 25 -> <=10 phút/hồ sơ;                     │
-│ không bỏ sót thông tin lâm sàng quan trọng. [Giả định lab]       │
-│                                                                  │
-│ Quick Architecture: [x] Rule  [x] LLM  [ ] Agent                 │
-│                     [x] Human Review                             │
-│ Ranh giới: CẤM tự thêm dữ kiện y khoa hoặc tự phê duyệt.         │
-└──────────────────────────────────────────────────────────────────┘
-```
-
-## Quick Problem Card #05 — Vinhomes – Phân loại và điều phối lead
-
-```text
-┌──────────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #05                                           │
-│                                                                  │
-│ Bài toán: Lead từ web, ads và sự kiện cần được phân loại,         │
-│ kiểm tra trùng lặp và giao cho Sales phù hợp kịp thời.          │
-│                                                                  │
-│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM                     │
-│                     [x] Vinhomes [ ] Vinmec                     │
-│                                                                  │
-│ Ai đang đau? Lead Operations, Sales Admin, tư vấn viên Sales     │
-│ và khách hàng đang chờ được liên hệ.                             │
-│                                                                  │
-│ Workflow hiện tại (5 bước giả định):                              │
-│ 1. Nhận lead từ web / quảng cáo / sự kiện                         │
-│ -> 2. Tổng hợp biểu mẫu, hội thoại và thông tin liên hệ          │
-│ -> 3. Kiểm tra trùng, phân loại nhu cầu / ngân sách               │
-│ -> 4. Đề xuất hoặc phân công Sales phù hợp                       │
-│ -> 5. Sales liên hệ và cập nhật CRM                              │
-│                                                                  │
-│ Bước tốn nhất? Bước 3-4: 8-15 phút/lead [Giả định lab]           │
-│                                                                  │
-│ AI hỗ trợ bước 3-4: Đọc nội dung tự do, phân loại nhu cầu,        │
-│ gợi ý nhân viên phù hợp; quy tắc kiểm tra trùng và phân tuyến.    │
-│                                                                  │
-│ Metric mục tiêu: Giảm 10 -> <=5 phút/lead;                       │
-│ 100% lead mới có trạng thái trong CRM. [Giả định lab]            │
-│                                                                  │
-│ Quick Architecture: [x] Rule  [x] LLM  [ ] Agent tự trị          │
-│                     [x] Human Approval                           │
-│ Ranh giới: CẤM tự cam kết giá / ưu đãi hoặc phân công trái       │
-│ chính sách; nhân viên duyệt trường hợp ngoại lệ.                 │
-└──────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #01 – AI Vehicle Damage Detection                       │
+│                                                                            │
+│ Bài toán (1 câu):                                                          │
+│ Tự động phát hiện và so sánh dấu hiệu hư hỏng ngoại thất xe từ hình ảnh    │
+│ trước/sau ca làm việc nhằm giảm thời gian kiểm tra và hạn chế bỏ sót bất   │
+│ thường.                                                                    │
+│                                                                            │
+│ Công ty thành viên: [ ] VinFast  [x] Xanh SM                               │
+│                     [ ] Vinhomes  [ ] Vinmec  [ ] Khác                     │
+│                                                                            │
+│ Ai đang đau (Actor):                                                       │
+│ • Tài xế bàn giao ca.                                                      │
+│ • Nhân viên kiểm tra phương tiện.                                          │
+│ • Quản lý đội xe.                                                          │
+│                                                                            │
+│ Workflow hiện tại (giả định):                                              │
+│ 1. Tài xế chụp ảnh xe khi bàn giao ca.                                     │
+│ 2. Nhân viên xem ảnh và so sánh với lần kiểm tra trước.                    │
+│ 3. Xác định dấu hiệu trầy xước, móp méo hoặc bất thường.                   │
+│ 4. Lập biên bản, yêu cầu xác minh nếu phát hiện hư hỏng.                   │
+│                                                                            │
+│ Bước tốn thời gian/lỗi nhất:                                               │
+│ • Bước 2–3: Xem, so sánh và xác định hư hỏng; 5 phút/lượt.                 │
+│ • Rủi ro: Bỏ sót vết nhỏ, ảnh mờ hoặc ánh sáng khác nhau.                  │
+│                                                                            │
+│ AI hỗ trợ ở bước nào:                                                      │
+│ • Bước 2–3: Computer Vision phát hiện dấu hiệu hư hỏng.                    │
+│ • So sánh ảnh, khoanh vùng thay đổi và chuyển nhân viên xác minh.          │
+│                                                                            │
+│ Metric mục tiêu (giả định lab):                                            │
+│ • Thời gian kiểm tra: 5 phút → ≤2 phút/lượt.                               │
+│ • Recall phát hiện hư hỏng nhìn thấy rõ ≥95%.                              │
+│ • Tỷ lệ cảnh báo sai ≤10% trên trường hợp không hư hỏng.                   │
+│ • Không tăng bỏ sót hư hỏng nghiêm trọng.                                  │
+│                                                                            │
+│ Quick Architecture:                                                        │
+│ [ ] No AI [x] Rule [ ] LLM [ ] Agent                                       │
+│ [x] Computer Vision [x] Human-in-the-loop                                  │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-# 🗳️ Quyết định lựa chọn đề xuất
+### QUICK PROBLEM CARD #02 – AI Demand Forecasting & Fleet Optimization
 
-**Chọn Card #05 — Vinhomes: Phân loại và điều phối lead từ web/ads/sự kiện đến nhân viên Sales phù hợp** để thực hiện **Deep-Dive**.
+```text
+┌────────────────────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #02 – AI Demand Forecasting & Fleet Optimization        │
+│                                                                            │
+│ Bài toán (1 câu):                                                          │
+│ Dự báo nhu cầu đặt xe theo khu vực và khung giờ nhằm hỗ trợ phân bổ phương │
+│ tiện, giảm thời gian khách chờ và quãng đường di chuyển không có khách.    │
+│                                                                            │
+│ Công ty thành viên: [ ] VinFast  [x] Xanh SM                               │
+│                     [ ] Vinhomes  [ ] Vinmec  [ ] Khác                     │
+│                                                                            │
+│ Ai đang đau (Actor):                                                       │
+│ • Nhân viên điều phối.                                                     │
+│ • Quản lý vận hành đội xe.                                                 │
+│ • Tài xế và khách hàng.                                                    │
+│                                                                            │
+│ Workflow hiện tại (giả định):                                              │
+│ 1. Thu thập số chuyến, vị trí xe và nhu cầu theo khu vực.                  │
+│ 2. Ước lượng nhu cầu đặt xe ở các khung giờ tiếp theo.                     │
+│ 3. Đề xuất phân bổ xe trống đến khu vực có nhu cầu.                        │
+│ 4. Theo dõi kết quả và điều chỉnh phương án vận hành.                      │
+│                                                                            │
+│ Bước tốn thời gian/lỗi nhất:                                               │
+│ • Bước 2–3: Ước lượng nhu cầu và tái phân bổ; 15 phút/chu kỳ.              │
+│ • Rủi ro: Dự báo sai, thừa/thiếu xe cục bộ.                                │
+│                                                                            │
+│ AI hỗ trợ ở bước nào:                                                      │
+│ • Bước 2: ML dự báo nhu cầu theo thời gian và khu vực.                     │
+│ • Bước 3: Thuật toán tối ưu hóa đề xuất phân bổ xe.                        │
+│ • Dữ liệu: GPS, lịch sử chuyến, thời tiết, sự kiện, SOC pin.               │
+│                                                                            │
+│ Metric mục tiêu (giả định lab):                                            │
+│ • Giảm WAPE dự báo nhu cầu ≥15% so với baseline.                           │
+│ • P90 thời gian khách chờ: 12 phút → ≤10 phút.                             │
+│ • Tỷ lệ km chạy rỗng: 30% → ≤27%.                                          │
+│ • Không giảm tỷ lệ nhận và hoàn thành chuyến.                              │
+│                                                                            │
+│ Quick Architecture:                                                        │
+│ [ ] No AI [x] Rule [ ] LLM [ ] Agent                                       │
+│ [x] Machine Learning [x] Optimization                                      │
+└────────────────────────────────────────────────────────────────────────────┘
+```
 
-## Lý do lựa chọn và loại bỏ các thẻ khác
+---
 
-- **Card #01 (Xanh SM – Hỗ trợ xử lý khiếu nại):** Có tiềm năng giảm thời gian phân loại, tra cứu chuyến đi và soạn phản hồi, nhưng cần truy cập dữ liệu giao dịch, chính sách hoàn tiền và phân quyền chặt chẽ. Các tình huống tranh chấp hoặc cam kết bồi thường có rủi ro cao; nhiều yêu cầu đơn giản có thể xử lý bằng API và quy tắc. Chưa ưu tiên cho MVP ngắn hạn.
-- **Card #03 (Vinmec – Tóm tắt hồ sơ xuất viện):** Có thể tiết kiệm thời gian cho bác sĩ, nhưng đòi hỏi bảo vệ dữ liệu sức khỏe, kiểm tra tính đầy đủ và chính xác của nội dung y khoa, cùng cơ chế bác sĩ phê duyệt. Rủi ro bỏ sót hoặc bịa thông tin lâm sàng khiến việc triển khai thử nghiệm khó hơn.
-- **Card #05 (Vinhomes – Phân loại và điều phối lead):** Quy trình đầu vào và đầu ra rõ ràng: thu lead từ web/ads/sự kiện, chuẩn hóa, kiểm tra trùng, phân loại nhu cầu và đề xuất phân công cho Sales. Có thể mô phỏng bằng dữ liệu tổng hợp, áp dụng Rule Engine cho các điều kiện phân tuyến và LLM để hiểu nội dung tự do. Đánh giá được bằng phút xử lý/lead, tỷ lệ lead có người phụ trách, tỷ lệ phân tuyến đúng và số lead bỏ sót; các quyết định ngoại lệ vẫn do nhân viên duyệt.
+### QUICK PROBLEM CARD #03 – AI Complaint Resolution Agent
 
-**Kết luận:** Nhóm ưu tiên **Card #05** vì có phạm vi MVP rõ, dễ tạo dữ liệu thử nghiệm, dễ so sánh với baseline rule-based và rủi ro được kiểm soát bằng quy tắc phân công cùng phê duyệt của nhân viên. Trước khi triển khai thực tế phải xác minh lưu lượng lead, thời gian phân tuyến hiện tại, dữ liệu được phép sử dụng và chính sách bảo vệ thông tin khách hàng.
+```text
+┌────────────────────────────────────────────────────────────────────────────┐
+│ QUICK PROBLEM CARD #03 – AI Complaint Resolution Agent                     │
+│                                                                            │
+│ Bài toán (1 câu):                                                          │
+│ Hỗ trợ tự động phân loại khiếu nại, truy xuất thông tin chuyến đi và đề    │
+│ xuất phương án xử lý nhằm giảm thời gian giải quyết yêu cầu chăm sóc khách │
+│ hàng.                                                                      │
+│                                                                            │
+│ Công ty thành viên: [ ] VinFast  [x] Xanh SM                               │
+│                     [ ] Vinhomes  [ ] Vinmec  [ ] Khác                     │
+│                                                                            │
+│ Ai đang đau (Actor):                                                       │
+│ • Nhân viên chăm sóc khách hàng.                                           │
+│ • Trưởng nhóm CSKH.                                                        │
+│ • Bộ phận xử lý khiếu nại.                                                 │
+│                                                                            │
+│ Workflow hiện tại (giả định):                                              │
+│ 1. Tiếp nhận phản ánh từ khách hàng.                                       │
+│ 2. Phân loại vấn đề và tra cứu thông tin chuyến đi.                        │
+│ 3. Đối chiếu chính sách, xác minh và chọn phương án xử lý.                 │
+│ 4. Soạn phản hồi, gửi khách hàng và cập nhật ticket.                       │
+│                                                                            │
+│ Bước tốn thời gian/lỗi nhất:                                               │
+│ • Bước 2–3: Tra cứu và tổng hợp dữ liệu; 6 phút/ticket.                    │
+│ • Tổng thời gian xử lý: 10 phút/ticket.                                    │
+│ • Rủi ro: Tra cứu sai, bỏ sót chính sách, phản hồi không nhất quán.        │
+│                                                                            │
+│ AI hỗ trợ ở bước nào:                                                      │
+│ • Bước 2: LLM phân loại khiếu nại.                                         │
+│ • Bước 2–3: Function Calling truy xuất dữ liệu chuyến đi.                  │
+│ • Bước 3: RAG tra cứu chính sách xử lý.                                    │
+│ • Bước 4: Agent đề xuất phương án, soạn nháp để người duyệt.               │
+│                                                                            │
+│ Metric mục tiêu (giả định lab):                                            │
+│ • Average Handling Time: 10 phút → ≤6 phút/ticket.                         │
+│ • Độ chính xác phân loại ≥95%.                                             │
+│ • Tỷ lệ đề xuất được nhân viên chấp nhận ≥85%.                             │
+│ • Tỷ lệ ticket mở lại không tăng so với baseline.                          │
+│ • Chi phí xử lý mỗi ticket thấp hơn hiện tại.                              │
+│                                                                            │
+│ Quick Architecture:                                                        │
+│ [ ] No AI [x] Rule [x] LLM [x] Agent                                       │
+│ [x] RAG [x] Human-in-the-loop                                              │
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
